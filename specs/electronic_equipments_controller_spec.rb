@@ -81,11 +81,21 @@ describe "Test Electronics Equipment Controller" do
 
   describe "If movement found on one of the sub coridors" do
     it "should switch on lights in respective sub coriidor" do
-      @equipment_controller.movement_in_floor(1, 2)
+      @equipment_controller.control_equipments(1, 2)
       @subcoridor_a_two.bulb.status.must_equal true
     end
   end
 
-  
+  describe "If no movement found more than 1 minutes, " do
+    it "then switch of the lights and switch on the AC of idle sub coridors" do
+      @equipment_controller.control_equipments(1, 2)
+      @subcoridor_a_two.bulb.status.must_equal true
 
+      sleep 63
+
+      @equipment_controller.control_equipments(1, 1)
+      @subcoridor_a_one.bulb.status.must_equal true
+      @subcoridor_a_two.bulb.status.must_equal false
+    end
+  end
 end

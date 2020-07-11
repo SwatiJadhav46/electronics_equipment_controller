@@ -9,7 +9,7 @@ class ElectronicEquipmentsController
     set_floors(floor_count, main_coridor_count, sub_coridor_count)
   end
 
-  def movement_in_floor(floor_number, sub_coridor_index)
+  def control_equipments(floor_number, sub_coridor_index)
     floor = self.hotel.get_floor(floor_number)
 
     floor.main_coridors.each do |main_coridor| 
@@ -19,7 +19,10 @@ class ElectronicEquipmentsController
     end
 
     @sub_coridor.bulb.switch_on!
+    @sub_coridor.set_last_operated_at!
     @idle_sub_coridor.ac.switch_off! if floor.is_power_consumption_exceeding?
+
+    self.hotel.reset_equipments
   end
 
   private

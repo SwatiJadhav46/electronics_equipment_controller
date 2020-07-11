@@ -20,4 +20,8 @@ class Floor < Hotel
   def is_power_consumption_exceeding?
     power_consumption > max_power_consumption
   end
+
+  def reset_equipments
+    main_coridors.each{ |coridor| coridor.reset_equipments }
+  end
 end

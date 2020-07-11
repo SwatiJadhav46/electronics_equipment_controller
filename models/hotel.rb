@@ -9,4 +9,8 @@ class Hotel
   def get_floor(number)
     floors.select{ |floor| floor.number.eql?(number) }[0]
   end
+
+  def reset_equipments
+    floors.each{ |floor| floor.reset_equipments }
+  end
 end

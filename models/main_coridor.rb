@@ -33,4 +33,8 @@ class MainCoridor < Floor
   def sub_coridor_power_consumption
     sub_coridors.map{ |coridor| coridor.power_consumption }.sum
   end
+
+  def reset_equipments
+    sub_coridors.each{ |coridor| coridor.reset_subcoridor_equipments }
+  end
 end
