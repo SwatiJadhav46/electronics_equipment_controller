@@ -9,12 +9,12 @@ class ElectronicEquipmentsController
     set_floors(floor_count, main_coridor_count, sub_coridor_count)
   end
 
-  def control_equipments(floor_number, sub_coridor_index)
+  def control_equipments(floor_number, sub_coridor_number)
     floor = self.hotel.get_floor(floor_number)
 
     floor.main_coridors.each do |main_coridor| 
-      @sub_coridor      = main_coridor.get_sub_coridor(sub_coridor_index)
-      @idle_sub_coridor = main_coridor.get_idle_sub_coridor(sub_coridor_index) 
+      @sub_coridor      = main_coridor.get_sub_coridor(sub_coridor_number)
+      @idle_sub_coridor = main_coridor.get_idle_sub_coridor(sub_coridor_number) 
       break if @sub_coridor
     end
 

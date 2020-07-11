@@ -7,7 +7,7 @@ class MainCoridorSpec < MiniTest::Test
   def test_main_coridor
     hotel = Hotel.new('Cafe Goodluck')
     floor = Floor.new(0, hotel)
-    main_coridor = MainCoridor.new(floor)
+    main_coridor = MainCoridor.new(floor, 1)
 
     assert main_coridor.floor.instance_of?(Floor), "Main coridor should have valid floor association"
     assert main_coridor.floor.number.zero?, "Main coridor's floor should have valid number"
@@ -16,7 +16,7 @@ class MainCoridorSpec < MiniTest::Test
   def test_default_equipment_state_of_main_coridor
     hotel = Hotel.new('Cafe Goodluck')
     floor = Floor.new(1, hotel)
-    main_coridor = MainCoridor.new(floor)
+    main_coridor = MainCoridor.new(floor, 1)
     
     assert_equal main_coridor.bulb.status, true, "Lights of main coridor should always be on"
     assert_equal main_coridor.ac.status, true, "AC of main coridor should always be on"

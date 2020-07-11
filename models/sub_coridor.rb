@@ -1,15 +1,15 @@
 require_relative 'main_coridor'
 
 class SubCoridor < MainCoridor
-  attr_accessor :main_coridor, :light_status, :ac_status, :index, :last_operated_at
+  attr_accessor :main_coridor, :light_status, :ac_status, :number, :last_operated_at
 
   MAX_POWER_CONSUMPTION = 10
 
-  def initialize(main_coridor, index)
-    @main_coridor  = main_coridor
-    @bulb          = Bulb.new(false)
-    @ac            = AirConditioner.new(true)
-    @index         = index
+  def initialize(main_coridor, number)
+    @main_coridor     = main_coridor
+    @bulb             = Bulb.new(false)
+    @ac               = AirConditioner.new(true)
+    @number            = number
     @last_operated_at = Time.now
   end
 

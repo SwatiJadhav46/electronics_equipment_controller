@@ -3,23 +3,23 @@ require_relative 'bulb'
 require_relative 'air_conditioner'
 
 class MainCoridor < Floor
-  attr_accessor :floor, :bulb, :ac, :sub_coridors, :index
+  attr_accessor :floor, :bulb, :ac, :sub_coridors, :number
 
   MAX_POWER_CONSUMPTION = 15
 
-  def initialize(floor, index)
+  def initialize(floor, number)
     @floor = floor
     @bulb  = Bulb.new(true)
     @ac    = AirConditioner.new(true)
-    @index = index
+    @number = number
   end
 
-  def get_sub_coridor(sub_coridor_index)
-    sub_coridors.select{ |coridor| coridor.index.eql?(sub_coridor_index) }[0]
+  def get_sub_coridor(sub_coridor_number)
+    sub_coridors.select{ |coridor| coridor.number.eql?(sub_coridor_number) }[0]
   end
 
-  def get_idle_sub_coridor(active_sub_coridor_index)
-    sub_coridors.select{ |coridor| !coridor.index.eql?(active_sub_coridor_index) }[0]
+  def get_idle_sub_coridor(active_sub_coridor_number)
+    sub_coridors.select{ |coridor| !coridor.number.eql?(active_sub_coridor_number) }[0]
   end
 
   def sub_coridors_count
