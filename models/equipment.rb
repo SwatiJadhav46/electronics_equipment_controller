@@ -15,6 +15,10 @@ class Equipment
   end
 
   def power_consumption
-    status ? volts : 0
+    @status ? @volts : 0
+  end
+
+  def formatted_status
+    @status ? 'ON' : 'OFF'
   end
 end

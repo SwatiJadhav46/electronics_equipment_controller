@@ -86,8 +86,11 @@ describe "Test Electronics Equipment Controller" do
     end
   end
 
-  describe "If no movement found more than 1 minutes, " do
-    it "then switch of the lights and switch on the AC of idle sub coridors" do
+  describe "If no movement found more than 1 minute, " do
+    it "then switch off the lights and switch on the AC of idle sub coridors" do
+      puts ""
+      puts "This test case will consume time as we are testing for scenario of no movement!!"
+
       @equipment_controller.control_equipments(1, 2)
       @subcoridor_a_two.bulb.status.must_equal true
 

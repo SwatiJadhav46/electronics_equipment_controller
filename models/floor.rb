@@ -21,7 +21,17 @@ class Floor < Hotel
     power_consumption > max_power_consumption
   end
 
+  #Reset electronic equipments if respective coridor is idle for more than 1 minute
   def reset_equipments
     main_coridors.each{ |coridor| coridor.reset_equipments }
+  end
+
+  def formatted_euqipment_details
+    puts "Floor #{@number}"
+    
+    main_coridors.each do |coridor|
+      coridor.formatted_euqipment_details
+      puts "---------------------------------"
+    end
   end
 end

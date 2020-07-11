@@ -34,7 +34,16 @@ class MainCoridor < Floor
     sub_coridors.map{ |coridor| coridor.power_consumption }.sum
   end
 
+  #Reset electronic equipments if respective coridor is idle for more than 1 minute
   def reset_equipments
     sub_coridors.each{ |coridor| coridor.reset_subcoridor_equipments }
+  end
+
+  def formatted_euqipment_details
+    puts "Main Coridor #{@number} Light: #{@bulb.formatted_status}, AC: #{@ac.formatted_status}"
+
+    sub_coridors.each do |coridor|
+      coridor.formatted_euqipment_details
+    end
   end
 end

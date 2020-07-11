@@ -26,11 +26,16 @@ class SubCoridor < MainCoridor
     time_diff > 1
   end
 
+  #Reset electronic equipments if respective coridor is idle for more than 1 minute
   def reset_subcoridor_equipments
     return unless is_coridor_idle_for_more_than_minute?
 
     @bulb.switch_off!
     @ac.switch_on!
     set_last_operated_at!
+  end
+
+  def formatted_euqipment_details
+    puts "Sub Coridor #{@number} Light: #{@bulb.formatted_status}, AC: #{@ac.formatted_status}"
   end
 end
