@@ -9,7 +9,7 @@ class SubCoridor < MainCoridor
     @main_coridor     = main_coridor
     @bulb             = Bulb.new(false)
     @ac               = AirConditioner.new(true)
-    @number            = number
+    @number           = number
     @last_operated_at = Time.now
   end
 

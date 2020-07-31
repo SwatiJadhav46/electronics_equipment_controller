@@ -2,7 +2,7 @@ class Hotel
   attr_accessor :name, :floors
 
   def initialize(name)
-    @name = name
+    @name   = name
     @floors = []
   end
 

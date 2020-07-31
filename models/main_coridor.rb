@@ -8,9 +8,9 @@ class MainCoridor < Floor
   MAX_POWER_CONSUMPTION = 15
 
   def initialize(floor, number)
-    @floor = floor
-    @bulb  = Bulb.new(true)
-    @ac    = AirConditioner.new(true)
+    @floor  = floor
+    @bulb   = Bulb.new(true)
+    @ac     = AirConditioner.new(true)
     @number = number
   end
 

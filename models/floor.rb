@@ -5,7 +5,7 @@ class Floor < Hotel
    
   def initialize(number = 0, hotel)
     @number = number
-    @hotel = hotel
+    @hotel  = hotel
   end
 
   def max_power_consumption
